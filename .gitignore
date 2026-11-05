@@ -1,0 +1,4 @@
+.generated-release
+node_modules/
+.env*
+*.log

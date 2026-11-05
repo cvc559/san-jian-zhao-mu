@@ -1,0 +1,9 @@
+{
+  "name": "san-jian-zhao-mu-release",
+  "version": "1.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-release.mjs"
+  }
+}
