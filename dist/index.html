@@ -5,19 +5,19 @@
   <meta name="theme-color" content="#f7f1e5"><meta name="description" content="在一柄油纸伞上落笔，以花叶与水色，收藏属于你的朝暮。">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>伞间朝暮 · 绘一柄自己的伞</title>
-  <link rel="stylesheet" href="./style-94f86f18d2360f21.css">
+  <link rel="stylesheet" href="./style-c1dcc3ecd461b946.css">
 </head>
 <body>
-<div class="app-shell">
+<div class="app-shell loading">
   <header class="app-header">
     <a class="brand" href="./" aria-label="伞间朝暮首页"><span class="brand-mark">伞</span><span><strong>伞间朝暮</strong><small>一纸花色 · 一伞朝暮</small></span></a>
-    <div class="header-actions"><span class="save-state" id="saveState" aria-live="polite">正在准备画室</span><button id="finish" class="primary">完成创作 <span aria-hidden="true">↗</span></button></div>
+    <div class="header-actions"><span class="save-state" id="saveState" aria-live="polite">正在准备画室</span><button id="finish" class="primary" disabled>完成创作 <span aria-hidden="true">↗</span></button></div>
   </header>
 
   <p class="orientation-tip">横过手机，左边绘伞，右边调整。</p>
   <main id="editor" class="editor-layout">
     <section class="art-studio" aria-label="二维伞面创作区">
-      <span class="workspace-label">二维绘伞</span><div class="studio-heading"><div><span class="eyebrow">YOUR PAPER CANVAS</span><h1>落笔，便是风景。</h1></div><span class="chapter">壹 / 绘伞</span></div>
+      <div class="face-bar"><span id="faceHint">正面 · 伞外</span><div class="segmented" id="faceSwitch" aria-label="选择装饰面"><button data-side="front" aria-pressed="true">正面</button><button data-side="back" aria-pressed="false">反面</button></div></div><div class="studio-heading"><div><span class="eyebrow">YOUR PAPER CANVAS</span><h1>落笔，便是风景。</h1></div><span class="chapter">壹 / 绘伞</span></div>
       <div class="canvas-wrap"><canvas id="artCanvas" width="1024" height="1024" aria-label="油纸伞画布，选择素材后可以拖动，选择画笔后可绘画">请使用支持画布的浏览器。</canvas><span class="canvas-seal">纸上春秋</span></div>
       <p class="canvas-hint" id="canvasHint">从一朵花、一片叶，开始你的创作</p>
       <div class="canvas-toolbar"><div class="history-actions"><button id="undo" class="quiet" disabled title="撤销">↶ <span>撤销</span></button><button id="redo" class="quiet" disabled title="重做">↷ <span>重做</span></button></div><button id="newWork" class="quiet">新作</button></div>
@@ -29,7 +29,7 @@
       <section id="panel-base" class="tool-panel" hidden><div class="panel-title"><h2>择一纸底色</h2><span>纸色轻，花色浓</span></div><div id="paperColors" class="paper-colors"></div><label class="custom-color">自选纸色 <input type="color" id="baseColor" value="#f8edd6"></label><p class="note">纸张的细微纹理，会保留在你的作品里。</p></section>
       <section id="panel-materials" class="tool-panel"><div class="panel-title"><h2>拾花入伞</h2><span>轻点添加 · 拖动摆放</span></div><div class="category-tabs" id="categories"><button data-category="flowers" aria-pressed="true">花卉</button><button data-category="leaves">枝叶</button><button data-category="birds">飞鸟</button><button data-category="patterns">纹样</button><button data-category="cute">可爱</button></div><div id="materialGrid" class="material-grid"></div></section>
       <section id="panel-brush" class="tool-panel" hidden><div class="panel-title"><h2>笔下有万象</h2><span>在伞面上轻轻涂画</span></div><div class="brush-grid" id="brushes"></div><div class="setting-heading"><span>笔触颜色</span><label class="color-picker" title="自选画笔颜色"><input id="brushColor" type="color" value="#315e4c"><span>自选</span></label></div><div id="inkColors" class="color-swatches"></div><label class="range-row">粗细 <input id="brushSize" type="range" min="6" max="100" value="28"><output id="brushSizeOutput">28</output></label><button id="eraser" class="outline full">橡皮擦</button><p class="note" id="brushNote">水墨纹理：干湿相间，落笔有层次。</p></section>
-      <section id="panel-decor" class="tool-panel" hidden><div class="panel-title"><h2>添一点玲珑</h2><span>伞缘、伞面，随心摆放</span></div><h3>整套边饰</h3><div class="border-options" id="borders"><button data-border="none" aria-pressed="true">素边</button><button data-border="tassels">流苏</button><button data-border="pearls">珠串</button><button data-border="lace">花边</button></div><div id="extraBorders" class="extra-borders" aria-label="新增整套边饰"></div><h3>独立挂件</h3><div class="charm-grid" id="charmGrid"></div><p class="note">挂件会附着在你选的位置，随立体伞一起转动。</p></section>
+      <section id="panel-decor" class="tool-panel" hidden><div class="panel-title"><h2>添一点玲珑</h2><span>伞缘、伞面，随心摆放</span></div><h3>伞边飘带</h3><div class="charm-grid ribbon-grid" id="ribbonGrid"></div><p class="note">九款长飘带，沿伞缘拖动。选中后可调整大小、旋转和颜色。</p><h3>整套边饰 · 两面共用</h3><div class="border-options" id="borders"><button data-border="none" aria-pressed="true">素边</button><button data-border="tassels">流苏</button><button data-border="pearls">珠串</button><button data-border="lace">花边</button></div><div id="extraBorders" class="extra-borders" aria-label="新增整套边饰"></div><h3>独立挂件</h3><div class="charm-grid" id="charmGrid"></div><p class="note">挂件会附着在你选的位置，随立体伞一起转动。</p></section>
       <section id="panel-color" class="tool-panel" hidden><div class="panel-title"><h2>调一抹春色</h2><span>微调色彩，保留笔意</span></div><div class="segmented" id="colorTargets"><button data-target="item" aria-pressed="true">选中素材</button><button data-target="all">整体伞面</button></div><p class="note" id="colorHint">请在伞面点选一个素材。</p><div id="filterSliders"></div><button id="resetFilters" class="outline full">恢复默认</button></section>
       <div class="selection-tools" id="selectionTools" hidden><div class="selected-name"><span class="selection-caption">已选：</span><span id="selectedName">已选素材</span><button id="deleteItem" class="danger-text">删除</button></div><label>大小 <input id="itemScale" type="range" min="40" max="650" value="250"><output id="scaleOutput">250</output></label><label>旋转 <input id="itemRotation" type="range" min="-180" max="180" value="0"><output id="rotationOutput">0°</output></label></div>
       <div class="toolbox-foot"><span class="tiny-leaf">❦</span><span>心之所至，皆可入画</span></div>
@@ -41,14 +41,14 @@
     <div class="scene-wrap" id="sceneWrap"><div class="scene-background" id="sceneBackground"></div><canvas id="threeCanvas" aria-label="三维油纸伞，单指旋转、双指缩放"></canvas><button id="lightHandle" aria-label="拖动暖光灯" hidden><span>☼</span><small>拖动灯光</small></button><span class="scene-caption" id="sceneCaption">湖畔晨光</span><div class="scene-error" id="sceneError" hidden></div></div>
     <aside class="preview-sidebar" aria-label="赏伞工具">
     <div class="preview-heading"><button id="backToEditor" class="quiet">← 返回创作</button><div><span class="eyebrow">LIGHT & PAPER</span><h1>伞收朝暮，灯影成诗。</h1></div><div class="segmented scene-switch"><button id="dayButton" aria-pressed="true">☀ 日景</button><button id="nightButton">☾ 夜景</button></div></div>
-    <div class="preview-controls"><p id="previewHint">单指转动 · 双指缩放 · 滚轮拉近</p><div id="nightModes" class="segmented" hidden><button data-mode="orbit" aria-pressed="true">转动伞</button><button data-mode="light">移动灯</button></div><div class="preview-actions"><button id="resetView" class="outline">回到正面</button><button id="exportImage" class="primary">保存图片 <span aria-hidden="true">↓</span></button></div></div>
+    <div class="preview-controls"><div class="segmented" id="previewSides" aria-label="选择赏伞视角"><button data-view-side="front" aria-pressed="true">看正面</button><button data-view-side="back" aria-pressed="false">看反面</button></div><p id="previewHint">单指转动 · 双指缩放 · 滚轮拉近</p><div id="nightModes" class="segmented" hidden><button data-mode="orbit" aria-pressed="true">转动伞</button><button data-mode="light">移动灯</button></div><div class="preview-actions"><button id="resetView" class="outline">重置视角</button><button id="exportImage" class="primary">保存图片 <span aria-hidden="true">↓</span></button></div></div>
     </aside>
   </section>
   <footer class="site-footer"><span>伞间朝暮</span><span>以纸为境，以光为诗</span></footer>
 </div>
 <div id="toast" role="status" class="toast" hidden></div>
 <div id="completion" class="completion" hidden><div class="completion-ring">成</div><h2>一伞春色，已然成画。</h2><p>一起去光里看看</p><div class="petals" aria-hidden="true">✦ · ❀ · ✦</div></div>
-<dialog id="newDialog"><h2>另起一柄新伞？</h2><p>这会替换本机保存的当前作品。可以先到赏伞页面保存图片。</p><div class="dialog-actions"><button id="cancelNew" class="outline">继续这幅</button><button id="confirmNew" class="primary">开始新作</button></div></dialog>
+<dialog id="newDialog"><h2>另起一柄新伞？</h2><p>这会替换当前伞的正反两面作品。可以先到赏伞页面保存图片。</p><div class="dialog-actions"><button id="cancelNew" class="outline">继续这幅</button><button id="confirmNew" class="primary">开始新作</button></div></dialog>
 <dialog id="exportDialog"><button id="closeExport" class="close-dialog" aria-label="关闭">×</button><h2>把这份朝暮带走</h2><p>长按下方图片保存，或使用下载按钮。</p><img id="exportResult" alt="我的油纸伞作品"><a id="downloadImage" class="primary full" download="伞间朝暮.png">下载作品图片</a></dialog>
-<script type="module" src="./app-b9d8da0bb90d5d48.js"></script>
+<script type="module" src="./app-7a777646f74121a4.js"></script>
 </body></html>
